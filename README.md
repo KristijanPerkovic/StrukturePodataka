@@ -1,2 +1,2 @@
-# Strukture_Podataka_1
+# StrukturePodataka
 Ovo je moj prvi repozitorij.
