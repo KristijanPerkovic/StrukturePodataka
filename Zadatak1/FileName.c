@@ -17,17 +17,13 @@ int read_file(char* filename, int row_count, _stud* students);
 
 void print_students(int row_count, _stud* students);
 
-
 int main()
 {
-
 	int row_count = count_rows("students.txt");
 
 	_stud* students = (_stud*)malloc(row_count * sizeof(_stud));
 
-	read_file("students.txt", row_count, students);
-
-	print_students(row_count, students);
+	if (read_file("students.txt", row_count, students) == EXIT_SUCCESS) print_students(row_count, students);
 
 	return 0;
 }

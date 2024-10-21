@@ -1,16 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Debug",
-    "\\x64",
-    "\\x64\\Debug",
-    "\\Zadatak1",
-    "\\Zadatak1\\Debug",
-    "\\Zadatak1\\Debug\\Zadatak1.tlog",
-    "\\Zadatak1\\x64",
-    "\\Zadatak1\\x64\\Debug",
-    "\\Zadatak1\\x64\\Debug\\Zadatak1.tlog"
+    "\\Zadatak1"
   ],
-  "SelectedNode": "\\Zadatak1\\FileName.c",
+  "SelectedNode": "\\Zadatak1\\students.txt",
   "PreviewInSolutionExplorer": false
 }
