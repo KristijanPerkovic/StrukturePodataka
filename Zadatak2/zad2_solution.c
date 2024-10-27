@@ -36,22 +36,19 @@ int main()
 	prepend_list(&head, "Mara", "Maric", 2002);
 	print_list(head.next);
 
-	char* searched_last_name = "Ivic";
-	char* ftp_last_name = "Maric";
+	char* searched_last_name = "Juric";
+	char* ftp_last_name = "Ivic";
 	char* to_delete_last_name = "Maric";
 
 	person* searched = find_by_lname(head.next, searched_last_name);
-	if (searched == NULL) printf("The element %s does not exist in the list or the list is empty.\n", searched_last_name);
-	else printf("Searched: %s %s %d\n", searched->fname, searched->lname, searched->birth_year);
+	if(searched) printf("Searched: %s %s %d\n", searched->fname, searched->lname, searched->birth_year);
 
 	person* find_their_previous = find_by_lname(head.next, ftp_last_name);
 	person* previous = find_previous(&head, find_their_previous);
 	if (find_their_previous && previous && find_their_previous != head.next) printf("The previous element of %s is %s %s %d.\n", ftp_last_name, previous->fname, previous->lname, previous->birth_year);
-	else if (find_their_previous == head.next && head.next) printf("The first element has no previous element.\n");
 
 	person* last = find_last(&head);
 	if (last && last != &head) printf("The last element of the list is %s %s %d.\n", last->fname, last->lname, last->birth_year);
-	else printf("Unable to find the last element because the list is empty.\n");
 
 	person* to_delete = find_by_lname(head.next, to_delete_last_name);
 	delete_person(&head, to_delete);
@@ -144,6 +141,7 @@ position find_by_lname(position first, char* lname)
 		if (strcmp(temp->lname, lname) == 0) return temp; // compares temp->lname and the searched last name
 		temp = temp->next;
 	}
+	printf("The element %s does not exist in the list or the list is empty.\n", lname);
 
 	return NULL;
 }
@@ -153,22 +151,30 @@ position find_last(position head)
 	position temp = head;
 
 	while (temp->next) temp = temp->next; // go until the element links to NULL. When it does, we have found the last element
+
+	if(temp == head) printf("Unable to find the last element because the list is empty.\n");
 	
 	return temp;
 }
 
 position find_previous(position head, position wanted)
 {
-	position temp = head;
 
-	if (wanted == NULL) printf("Unable to find the previous element because the last name is not in the list.\n");
-	else if (wanted == head) printf("Unable to find the previous element of head.\n");
+	position temp = head;
 	
 	while (temp->next)
 	{
 		if (temp->next == wanted) return temp; // temp is the previous element of wanted (temp->next links to wanted)
 		temp = temp->next;
 	}
+
+	if (head->next == wanted && head->next)
+	{
+		printf("The first element has no previous element.\n");
+		return NULL;
+	}
+
+	if (wanted == head) printf("Unable to find the previous element of head.\n");
 
 	return NULL;
 }
@@ -177,12 +183,8 @@ int delete_person(position head, position to_delete)
 {
 	position temp = head;
 
-	if (to_delete == NULL)
-	{
-		printf("Unable to delete the element because the last name is not in the list or the list is empty.\n");
-		return EXIT_FAILURE;
-	}
-
+	if (to_delete == NULL) return EXIT_FAILURE;
+	
 	if (head == to_delete)
 	{
 		printf("Unable to delete head.\n");
