@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 typedef struct _Element* Position;
 typedef struct _Element
@@ -160,8 +161,17 @@ int PrintPolynomial(Position first)
 
 	while (temp)
 	{
-		if (temp->exp == 0) printf("%d ", temp->coeff, temp->exp);
-		else printf("%dx^%d ", temp->coeff, temp->exp);
+		if (temp == first && temp->coeff > 0)
+		{
+			if (temp->exp == 0) printf("%d ", abs(temp->coeff));
+			else printf("%dx^%d ", abs(temp->coeff), temp->exp);
+		}
+		else
+		{
+			if (temp->exp == 0) printf("%c %d ", temp->coeff > 0 ? '+' : '-', abs(temp->coeff));
+			else printf("%c %dx^%d ", temp->coeff > 0 ? '+' : '-', abs(temp->coeff), temp->exp);
+		}
+		
 		temp = temp->next;
 	}
 

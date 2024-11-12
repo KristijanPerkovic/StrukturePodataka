@@ -1,4 +1,2 @@
 ﻿  zad4_solution.c
-C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak4\zad4_solution.c(163,54): warning C4474: 'printf' : too many arguments passed for format string
-C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak4\zad4_solution.c(163,54): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
   Zadatak4.vcxproj -> C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak4\x64\Debug\Zadatak4.exe
