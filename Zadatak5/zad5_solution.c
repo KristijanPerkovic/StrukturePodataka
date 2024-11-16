@@ -8,26 +8,26 @@ typedef struct _stack* position;
 
 typedef struct _stack
 {
-    int number;
+    double number;
     position next;
 } stack;
 
-int push(position head, int number);
-int pop(position head, int* result);
-int read_file(position head);
+int push(position head, double number);
+int pop(position head, double* result);
+double read_file(position head);
 
 int main()
 {
     stack head = { .next = NULL };
-    int result = read_file(&head);
+    double result = read_file(&head);
 
     if (result != ERROR)
-        printf("Postfix expression calculated: %d.\n", result);
+        printf("Postfix expression calculated: %.2lf\n", result);
 
     return 0;
 }
 
-int push(position head, int number)
+int push(position head, double number)
 {
     position nE = NULL;
 
@@ -45,7 +45,7 @@ int push(position head, int number)
     return EXIT_SUCCESS;
 }
 
-int pop(position head, int* result)
+int pop(position head, double* result)
 {
     if (!head->next)
     {
@@ -61,10 +61,10 @@ int pop(position head, int* result)
     return EXIT_SUCCESS;
 }
 
-int read_file(position head)
+double read_file(position head)
 {
     FILE* fp = NULL;
-    int result;
+    double result;
 
     fp = fopen("postfix.txt", "r");
 
@@ -79,7 +79,7 @@ int read_file(position head)
     while (fscanf(fp, "%s", buffer) != EOF)
     {
         if (buffer[0] >= '0' && buffer[0] <= '9') {
-            int value = atoi(buffer);
+            double value = atof(buffer);
             if (push(head, value) == ERROR)
             {
                 printf("Adding stack element error.\n");
@@ -89,7 +89,7 @@ int read_file(position head)
         }
         else
         {
-            int operand1, operand2;
+            double operand1, operand2;
             if (pop(head, &operand1) == ERROR || pop(head, &operand2) == ERROR)
             {
                 printf("Removing stack element error.\n");
