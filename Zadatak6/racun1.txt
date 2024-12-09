@@ -1,0 +1,4 @@
+2022-5-5
+banana 2 0.40
+jabuka 3 0.30
+mlijeko 1 1.50

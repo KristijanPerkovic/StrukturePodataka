@@ -1,0 +1,4 @@
+2019-12-21
+piletina 2 5.00
+riza 1 1.20
+brokula 5 0.20
