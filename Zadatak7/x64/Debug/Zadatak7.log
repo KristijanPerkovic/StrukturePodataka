@@ -1,0 +1,5 @@
+﻿  zad7_solution.c
+C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak7\zad7_solution.c(147,6): warning C4101: 'choice': unreferenced local variable
+C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak7\zad7_solution.c(101): warning C4715: 'print_directory': not all control paths return a value
+C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak7\zad7_solution.c(223): warning C4715: 'dos_command': not all control paths return a value
+  Zadatak7.vcxproj -> C:\Users\Kristijan\source\repos\StrukturePodataka\Zadatak7\x64\Debug\Zadatak7.exe
